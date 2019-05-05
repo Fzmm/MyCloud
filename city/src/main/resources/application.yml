@@ -1,0 +1,18 @@
+server:
+  port: 8089
+
+spring:
+    datasource:
+        name: dev
+        url: jdbc:mysql://193.112.107.127/zouwenyi?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+        username: root
+        password: 123456
+        driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.sxmyt.city
+
+
+logging:
+  level:
+     com.sxmyt.city.mapper : debug
