@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sxmyt</groupId>
-    <artifactId>city</artifactId>
+    <artifactId>sxmyt</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>city</name>
+    <name>sxmyt</name>
     <packaging>war</packaging>
     <description>sxmyt</description>
 
