@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxmyt.city.mapper.ShopMapper" >
+  <resultMap id="BaseResultMap" type="com.sxmyt.city.entity.Shop" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="shop_uni_id" property="shopUniId" jdbcType="INTEGER" />
+    <result column="shop_name" property="shopName" jdbcType="VARCHAR" />
+    <result column="shop_price" property="shopPrice" jdbcType="DECIMAL" />
+    <result column="shop_buy_number" property="shopBuyNumber" jdbcType="INTEGER" />
+    <result column="shop_sort" property="shopSort" jdbcType="INTEGER" />
+    <result column="shop_shop_number" property="shopShopNumber" jdbcType="INTEGER" />
+    <result column="shop_vip_price" property="shopVipPrice" jdbcType="DECIMAL" />
+    <result column="is_delete" property="isDelete" jdbcType="INTEGER" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, shop_uni_id, shop_name, shop_price, shop_buy_number, shop_sort, shop_shop_number, 
+    shop_vip_price, is_delete, create_user, create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sxmyt.city.entity.ShopExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_shop
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.sxmyt.city.entity.ShopExample" >
+    delete from tb_shop
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sxmyt.city.entity.Shop" >
+    insert into tb_shop (id, shop_uni_id, shop_name, 
+      shop_price, shop_buy_number, shop_sort, 
+      shop_shop_number, shop_vip_price, is_delete, 
+      create_user, create_time)
+    values (#{id,jdbcType=INTEGER}, #{shopUniId,jdbcType=INTEGER}, #{shopName,jdbcType=VARCHAR}, 
+      #{shopPrice,jdbcType=DECIMAL}, #{shopBuyNumber,jdbcType=INTEGER}, #{shopSort,jdbcType=INTEGER}, 
+      #{shopShopNumber,jdbcType=INTEGER}, #{shopVipPrice,jdbcType=DECIMAL}, #{isDelete,jdbcType=INTEGER}, 
+      #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sxmyt.city.entity.Shop" >
+    insert into tb_shop
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="shopUniId != null" >
+        shop_uni_id,
+      </if>
+      <if test="shopName != null" >
+        shop_name,
+      </if>
+      <if test="shopPrice != null" >
+        shop_price,
+      </if>
+      <if test="shopBuyNumber != null" >
+        shop_buy_number,
+      </if>
+      <if test="shopSort != null" >
+        shop_sort,
+      </if>
+      <if test="shopShopNumber != null" >
+        shop_shop_number,
+      </if>
+      <if test="shopVipPrice != null" >
+        shop_vip_price,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="shopUniId != null" >
+        #{shopUniId,jdbcType=INTEGER},
+      </if>
+      <if test="shopName != null" >
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopPrice != null" >
+        #{shopPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="shopBuyNumber != null" >
+        #{shopBuyNumber,jdbcType=INTEGER},
+      </if>
+      <if test="shopSort != null" >
+        #{shopSort,jdbcType=INTEGER},
+      </if>
+      <if test="shopShopNumber != null" >
+        #{shopShopNumber,jdbcType=INTEGER},
+      </if>
+      <if test="shopVipPrice != null" >
+        #{shopVipPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sxmyt.city.entity.ShopExample" resultType="java.lang.Integer" >
+    select count(*) from tb_shop
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tb_shop
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.shopUniId != null" >
+        shop_uni_id = #{record.shopUniId,jdbcType=INTEGER},
+      </if>
+      <if test="record.shopName != null" >
+        shop_name = #{record.shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shopPrice != null" >
+        shop_price = #{record.shopPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.shopBuyNumber != null" >
+        shop_buy_number = #{record.shopBuyNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.shopSort != null" >
+        shop_sort = #{record.shopSort,jdbcType=INTEGER},
+      </if>
+      <if test="record.shopShopNumber != null" >
+        shop_shop_number = #{record.shopShopNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.shopVipPrice != null" >
+        shop_vip_price = #{record.shopVipPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isDelete != null" >
+        is_delete = #{record.isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="record.createUser != null" >
+        create_user = #{record.createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tb_shop
+    set id = #{record.id,jdbcType=INTEGER},
+      shop_uni_id = #{record.shopUniId,jdbcType=INTEGER},
+      shop_name = #{record.shopName,jdbcType=VARCHAR},
+      shop_price = #{record.shopPrice,jdbcType=DECIMAL},
+      shop_buy_number = #{record.shopBuyNumber,jdbcType=INTEGER},
+      shop_sort = #{record.shopSort,jdbcType=INTEGER},
+      shop_shop_number = #{record.shopShopNumber,jdbcType=INTEGER},
+      shop_vip_price = #{record.shopVipPrice,jdbcType=DECIMAL},
+      is_delete = #{record.isDelete,jdbcType=INTEGER},
+      create_user = #{record.createUser,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

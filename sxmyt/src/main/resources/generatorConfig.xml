@@ -34,7 +34,7 @@
     </javaClientGenerator>
 	
 	<!--  这里是类名 -->
-	<table tableName="tb_user" domainObjectName="UserEntity" />
+	<table tableName="tb_shop" domainObjectName="Shop" />
 
 	
   </context>
