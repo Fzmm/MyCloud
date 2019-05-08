@@ -42,11 +42,12 @@
             <version>4.1.6</version>
         </dependency>
 
-        <!--  springboot整合 redis -->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-redis</artifactId>-->
-        <!--</dependency>-->
+          <!--springboot整合 redis-->
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-redis</artifactId>
+        </dependency>-->
+
 
         <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
         <dependency>
@@ -88,17 +89,13 @@
     </dependencies>
 
     <build>
+        <finalName>sxmyt</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <artifactId>maven-help-plugin</artifactId>
-                <version>2.1.1</version>
-            </plugin>
         </plugins>
-        <finalName>sxmyt</finalName>
     </build>
 
 </project>

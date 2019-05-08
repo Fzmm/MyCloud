@@ -26,7 +26,7 @@ public class Swagger2 {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.hxl.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.sxmyt.city"))
                 .paths(PathSelectors.any())
                 .build();
     }
