@@ -32,21 +32,21 @@ public class ReturnMessage implements Serializable {
     /***
      * 数据
      */
-    private Object date;
+    private Object data;
 
 
-    public ReturnMessage(Integer code, String message, boolean flag, Object date) {
+    public ReturnMessage(Integer code, String message, boolean flag, Object data) {
         this.code = code;
         this.message = message;
         this.flag = flag;
-        this.date = date;
+        this.data = data;
     }
 
-    public ReturnMessage(Object date) {
+    public ReturnMessage(Object data) {
         this.code = 200;
         this.message = "ok";
         this.flag = true;
-        this.date = date;
+        this.data = data;
     }
 
 
@@ -74,12 +74,12 @@ public class ReturnMessage implements Serializable {
         this.flag = flag;
     }
 
-    public Object getDate() {
-        return date;
+    public Object getData() {
+        return data;
     }
 
-    public void setDate(Object date) {
-        this.date = date;
+    public void setData(Object date) {
+        this.data = date;
     }
 
     @Override
@@ -88,7 +88,7 @@ public class ReturnMessage implements Serializable {
                 "code=" + code +
                 ", message=" + message +
                 ", flag=" + flag +
-                ", date=" + date +
+                ", date=" + data +
                 '}';
     }
 }

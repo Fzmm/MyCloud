@@ -16,3 +16,15 @@ mybatis:
 logging:
   level:
      com.sxmyt.city.mapper : debug
+
+
+#spring:
+#  redis:
+#    host: 106.14.72.179
+#    password: redispassword
+#    port: 6379
+#    pool:
+#      max-idle: 100
+#      min-idle: 1
+#      max-active: 1000
+#      max-wait: -1
